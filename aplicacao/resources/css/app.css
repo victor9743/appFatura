@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "font-awesome/css/font-awesome";
 .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;

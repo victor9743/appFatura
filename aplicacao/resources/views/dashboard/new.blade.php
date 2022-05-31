@@ -12,7 +12,7 @@
         </ul>
     </div>
 @endif
-<div class="container" style="margin-top: 60px">
+<div class="container card bg-dark text-white p-3" style="margin-top: 40px">
     <div class="tab-pane" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
         <div class="text-left mb-3">
             <h3>Salvar Fatura</h3>
@@ -76,11 +76,11 @@
                 </div>
           
                 <div class="row">
-                    <div class="form d-flex justify-content-left mb-4 col-sm-6">
+                    <div class="form d-flex justify-content-left  col-sm-6">
                         <a href="/fatura/index" class="btn btn-primary btn-block mb-3">Voltar</a>
                     </div>
-                    <div class="form d-flex justify-content-end mb-4 col-sm-6">
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                    <div class="form d-flex justify-content-end  col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-block mb-3">cadastrar</button>
                         
                     </div>
                 </div>            

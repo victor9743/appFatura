@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('title')
 </head>
-<body>
+<body class="gradient-custom">
     @yield('content')
 </body>
-@yield('scripts')
+    @yield('scripts')
 </html>

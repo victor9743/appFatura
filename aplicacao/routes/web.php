@@ -13,6 +13,8 @@ use App\Http\Controllers\fatura_controller;
 |
 */
 
+//usuario
+
 Route::get('/', function () {
     return view('usuario/login');
 });
@@ -21,9 +23,17 @@ Route::get('/register', function(){
     return view('usuario/register');
 });
 
-Route::get('/fatura/index', function(){
-    return view('dashboard/index');
+Route::get('/recuperarSenha', function(){
+    return view('usuario/recover');
 });
+
+Route::get('/usuario/detalhes', function(){
+    return view('usuario/detalhesUsuario');
+});
+
+// fatura
+
+Route::get('/fatura/index', [fatura_controller::class, 'index']);
 
 Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
 

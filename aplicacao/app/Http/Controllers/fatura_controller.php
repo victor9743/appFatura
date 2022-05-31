@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class fatura_controller extends Controller
 {
     public function index(){
-        return redirect("/fatura/index");
+
+        $faturas = Fatura::all();
+   
+        return view("/dashboard/index", ["faturas" => $faturas]);
     }
 
     public function create(){

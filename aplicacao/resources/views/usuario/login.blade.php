@@ -17,16 +17,16 @@
   
                 <div class="form-outline form-white mb-4">
                   <label class="form-label text-left" for="typeEmailX">Email</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" />                 
+                  <input type="email" id="typeEmailX" class="form-control form-control" />                 
                 </div>
   
                 <div class="form-outline form-white mb-1">
                   <label class="form-label" for="typePasswordX">Senha</label>
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                  <input type="password" id="typePasswordX" class="form-control form-control" />
                   
                 </div>
   
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="{{'/recuperarSenha'}}">Esqueceu a senha?</a></p>
   
                 <button class="btn btn-outline-light btn-lg px-5" type="submit" id="teste">Login</button>
 

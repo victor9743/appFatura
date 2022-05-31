@@ -22,24 +22,13 @@
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="15"
-            alt="MDB Logo"
-            loading="lazy"
-          />
-        </a>
+
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
+            <strong>
+              <a class="nav-link" href="/fatura/index">AppFatura</a>
+            </strong>
           </li>
         </ul>
         <!-- Left links -->
@@ -48,13 +37,7 @@
   
       <!-- Right elements -->
       <div class="d-flex align-items-center">
-        <!-- Icon -->
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-  
-        
-          
+        <!-- Icon --> 
         <!-- Avatar -->
         <div class="dropdown">
           <a
@@ -68,7 +51,7 @@
             <img
               src="{{asset ('imgs/profile.png')}}"
               class="rounded-circle"
-              height="25"
+              height="50"
               alt="Black and White Portrait of a Man"
               loading="lazy"
             />
@@ -78,10 +61,7 @@
             aria-labelledby="navbarDropdownMenuAvatar"
           >
             <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="/usuario/detalhes">Detalhes de Usuário</a>
             </li>
             <li>
               <a class="dropdown-item" href="#">Logout</a>
@@ -96,9 +76,31 @@
   </nav>
   <!-- Navbar -->
 
-  <a href="/fatura/cadastrar" class="btn btn-primary"> Cadastrar</a>
 
+  <div class="container card bg-dark text-white mt-5 p-3">
+    <table class="table table-dark">
+      <thead>
+        <th>#</th>
+        <th>Descrição</th>
+        <th>Detalhes</th>
+      </thead>
+      <tbody>
+        @foreach ($faturas as $fatura )
+          <td>{{$fatura->id}}</td>
+          <td>{{$fatura->descricao}}</td>
+          <td><a href="/fatura/cadastrar"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>           
+        @endforeach
+       
+      </tbody>
+    </table>
+    <div class="form d-flex justify-content-end">
+      <a href="/fatura/cadastrar" class="btn btn-primary"> Cadastrar</a>
+    </div>
+  </div>
+    
+ 
 
+ 
 
 
   <script src="{{ asset('js/app.js') }}"></script>
