@@ -1,4 +1,4 @@
 //require('./bootstrap');
 import "@popperjs/core";
-import "bootstrap";
+import "bootstrap/dist/js/bootstrap";
 import "jquery/dist/jquery";

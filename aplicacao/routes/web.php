@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\fatura_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/register', function(){
     return view('usuario/register');
 });
+
+Route::get('/fatura/index', function(){
+    return view('dashboard/index');
+});
+
+Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
+
+Route::post('/fatura/index',  [fatura_controller::class, 'index']);
+
+Route::post('/fatura/salvar',  [fatura_controller::class, 'salvar']);
