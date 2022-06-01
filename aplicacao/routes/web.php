@@ -14,21 +14,8 @@ use App\Http\Controllers\fatura_controller;
 */
 
 //usuario
-
-Route::get('/', function () {
-    return view('usuario/login');
-});
-
-Route::get('/register', function(){
-    return view('usuario/register');
-});
-
-Route::get('/recuperarSenha', function(){
-    return view('usuario/recover');
-});
-
-Route::get('/usuario/detalhes', function(){
-    return view('usuario/detalhesUsuario');
+Route::get("/", function(){
+    return view("auth/login");
 });
 
 // fatura
@@ -40,3 +27,11 @@ Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
 Route::post('/fatura/index',  [fatura_controller::class, 'index']);
 
 Route::post('/fatura/salvar',  [fatura_controller::class, 'salvar']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/index',  [fatura_controller::class, 'index'])->name('dashboard');
+});
