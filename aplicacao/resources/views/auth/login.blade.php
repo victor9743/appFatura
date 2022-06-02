@@ -16,7 +16,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <h2 class="fw-bold mb-5 text-uppercase" style="font-size: 20pt">Login</h2>
+            <h2 class="fw-bold mt-4 mb-5 text-uppercase" style="font-size: 20pt">Login</h2>
             <div  class="mb-4  text-left">
                 <x-jet-label for="email" class="text-light" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 form-control " type="email" name="email" :value="old('email')" required autofocus />

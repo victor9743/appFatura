@@ -7,7 +7,7 @@
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-      <button
+      <a href="/fatura/index"
         class="navbar-toggler"
         type="button"
         data-mdb-toggle="collapse"
@@ -15,9 +15,10 @@
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        style="border: none"
       >
-        <i class="fas fa-bars"></i>
-      </button>
+       <strong> App Fatura</strong>
+    </a>
   
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,9 +52,10 @@
             <img
               src="{{asset ('imgs/profile.png')}}"
               class="rounded-circle"
-              height="50"
-              alt="Black and White Portrait of a Man"
+              height="10"
+              alt="perfil"
               loading="lazy"
+              style="height: 80px"
             />
           </a>
           <ul
@@ -64,7 +66,10 @@
               <a class="dropdown-item" href="/usuario/detalhes">Detalhes de Usuário</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Logout</a>
+              <form action="/logout" method="POST">
+                @csrf
+                <a class="dropdown-item" href="/logout" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+              </form>
             </li>
             
           </ul>
@@ -77,7 +82,7 @@
   <!-- Navbar -->
 
 
-  <div class="container card bg-dark text-white mt-5 p-3">
+  <div class="container card bg-dark text-white mt-5 p-2">
     <table class="table table-dark">
       <thead>
         <th>#</th>
@@ -88,7 +93,7 @@
         @foreach ($faturas as $fatura )
           <td>{{$fatura->id}}</td>
           <td>{{$fatura->descricao}}</td>
-          <td><a href="/fatura/cadastrar"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>           
+          <td><a href="/fatura/cadastrar/{{$fatura->id}}"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>           
         @endforeach
        
       </tbody>

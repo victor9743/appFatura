@@ -15,14 +15,14 @@
 <div class="container card bg-dark text-white p-3" style="margin-top: 40px">
     <div class="tab-pane" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
         <div class="text-left mb-3">
-            <h3>Salvar Fatura</h3>
+            <h2 class="fw-bold mt-4 mb-3 text-uppercase" style="font-size: 20pt">Salvar Fatura</h2>
         </div>
 
-        
-        <!-- Name input -->
+
         <form action="/fatura/salvar" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="row">
+                <input type="hidden" value="">
 
                 <div class="col-sm-6">
                     <div class="form-outline mb-4 col-sm-8">
@@ -31,21 +31,19 @@
                         
                     </div>
 
-                    <!-- Username input -->
                     <div class="form-outline mb-4 col-sm-4">
                         <label class="form-label" for="valorFatura">Valor da fatura</label>
                         <input type="number" id="valorFatura" name="valorFatura" class="form-control" />
                     
                     </div>
 
-                    <!-- Email input -->
                     <div class="form-outline mb-4 col-sm-8">
                         <label class="form-label" for="imgFatura">Imagem da fatura</label>
-                        <input type="file" name="imgFatura" id="imgFatura" class="form-control" />
+                        <input type="file" name="imgFatura" id="imgFatura" class="" />
                         
                     </div>
 
-                    <!-- Password input -->
+
                     <div class="form-outline mb-4 col-sm-4">
                         <label class="form-label" for="vencimento">Vencimento</label>
                         <input type="date" id="vencimento" name="vencimento" class="form-control" />
@@ -54,11 +52,9 @@
                 </div>
             
                 <div class="col-sm-6">
-
-                    <!-- Repeat Password input -->
                     <div class="form-outline mb-4 col-sm-8">
                         <label class="form-label" for="imgRecibo">Imagem do recibo</label>
-                        <input type="file" id="imgRecibo" name="imgRecibo" class="form-control" />
+                        <input type="file" id="imgRecibo" name="imgRecibo"/>
                         
                     </div>
 
@@ -68,10 +64,6 @@
                         
                     </div>
 
-                    <!-- Checkbox -->
-                   
-
-                    <!-- Submit button -->
                                  
                 </div>
           
@@ -80,7 +72,7 @@
                         <a href="/fatura/index" class="btn btn-primary btn-block mb-3">Voltar</a>
                     </div>
                     <div class="form d-flex justify-content-end  col-sm-6">
-                        <button type="submit" class="btn btn-primary btn-block mb-3">cadastrar</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Salvar</button>
                         
                     </div>
                 </div>            

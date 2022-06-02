@@ -18,14 +18,51 @@ Route::get("/", function(){
     return view("auth/login");
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get("/usuario/detalhes", function(){
+        return view('usuario/detalhesUsuario');
+    });
+    
+});
+
 // fatura
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
+});
 
-Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/fatura/detalhes/{id}', [fatura_controller::class, 'mostrar']);
+});
 
-Route::post('/fatura/index',  [fatura_controller::class, 'index']);
 
-Route::post('/fatura/salvar',  [fatura_controller::class, 'salvar']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::post('/fatura/index',  [fatura_controller::class, 'index']);
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::post('/fatura/salvar',  [fatura_controller::class, 'salvar']);
+});
 
 Route::middleware([
     'auth:sanctum',

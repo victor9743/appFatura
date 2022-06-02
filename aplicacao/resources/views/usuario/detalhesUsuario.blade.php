@@ -22,37 +22,37 @@
                         src="{{asset ('imgs/profile.png')}}"
                         class="rounded-circle"
                         height="250"
-                        alt="Black and White Portrait of a Man"
+                        alt="Avatar do usuário"
                         loading="lazy"
                       />
                     </div>
                     <div class="col-sm-6" style="text-align: left">
                         <div class="form-outline form-white mb-2" >
                             <label class="form-label " for="typeEmailX">Usuário</label>
-                            <input type="email" id="typeEmailX" class="form-control form-control" />                 
+                            <input type="email" id="typeEmailX" class="form-control" />                 
                         </div>
-                        <div class="form-outline form-white mb-2 row" >
+                        <div class="form-outline form-white mb-2 row">
                             <div class="col-sm-6">
                                 <label class="form-label " for="typeEmailX">Senha</label>
-                                <input type="password" id="typeEmailX" class="form-control form-control" />   
+                                <input type="password" id="typeEmailX" class="form-control " />   
                             </div>
                             <div class="col-sm-6">
                                 <label class="form-label " for="typeEmailX">confirmar senha</label>
-                                <input type="password" id="typeEmailX" class="form-control form-control" />   
+                                <input type="password" id="typeEmailX" class="form-control " />   
                             </div>
                                           
                         </div>
                         <div class="form-outline form-white mb-3">
-                            <label class="form-label text-left" for="typeEmailX">Token do usuário</label>
-                            <input type="text" id="typeEmailX" class="form-control form-control text-center" value="67393247" readonly/>                 
+                            <label class="form-label text-left" for="typeEmailX">Email</label>
+                            <input type="email" id="typeEmailX" class="form-control form-control text-center" />                 
                         </div>
                         <div class="form-outline form-white row">
-                            <div class="col-sm-6 d-flex">
-                                <a href="/fatura/cadastrar" class="btn btn-primary"> Voltar</a>
+                            <div class="col-6 d-flex">
+                                <a href="/fatura/cadastrar" class="btn btn-primary">Voltar</a>
                             </div>
 
-                            <div class="col-sm-6 d-flex justify-content-end">
-                                <a href="/fatura/cadastrar" class="btn btn-primary"> Salvar</a>
+                            <div class="col-6 d-flex justify-content-end">
+                                <a href="/fatura/cadastrar" class="btn btn-primary">Salvar</a>
                             </div>
                         </div>
                        
