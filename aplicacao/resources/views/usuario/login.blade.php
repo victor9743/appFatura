@@ -17,7 +17,7 @@
   
                 <div class="form-outline form-white mb-4">
                   <label class="form-label text-left" for="typeEmailX">Email</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control" />                 
+                  <input type="email" id="typeEmailX" class="form-control" />                 
                 </div>
   
                 <div class="form-outline form-white mb-1">

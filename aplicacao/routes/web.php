@@ -20,7 +20,6 @@ Route::get("/", function(){
 
 // fatura
 
-Route::get('/fatura/index', [fatura_controller::class, 'index']);
 
 Route::get('/fatura/cadastrar', [fatura_controller::class, 'create']);
 
@@ -34,4 +33,13 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/index',  [fatura_controller::class, 'index'])->name('dashboard');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/fatura/index', [fatura_controller::class, 'index']);
+
 });
