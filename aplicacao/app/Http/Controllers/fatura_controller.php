@@ -23,23 +23,11 @@ class fatura_controller extends Controller
 
     public function salvar(Request $campos){
         $con = new Fatura;
+        $data = $campos->all();
+        unset($data["id_Fatura"]);
         // pegando o usuario logado
         $usuario = auth()->user();
         $con->user_id = $usuario->id;
-        $campos->validate([
-            'descricao' => 'required',
-            'valorFatura' => 'required',
-            'imgFatura' => 'required',
-            'vencimento' => 'required'
-        ]);
-
-           
-        $con->descricao = $campos->descricao;
-        $con->valorFatura = $campos->valorFatura;
-        $con->imgFatura = $campos->imgFatura;
-        $con->vencimento = $campos->vencimento;
-        $con->imgRecibo = $campos->imgRecibo;
-        $con->dataPagamento = $campos->dataPagamento;
 
         if($campos->hasFile('imgFatura') && $campos->file('imgFatura')->isValid()) {
             $requestImage = $campos->imgFatura;
@@ -51,10 +39,14 @@ class fatura_controller extends Controller
             $imageName = md5($requestImage->getClientOriginalName().strtotime("now") . "." . $extension);
 
             // mover o arquivo/imagem para o diretório
-            $campos->imgFatura->move(public_path('img/atributos'), $imageName);
+            $campos->imgFatura->move(public_path('img/faturas'), $imageName);
 
             // salvar a url do arquivo/imagem no banco
-            $con->imgFatura = $imageName;
+            if($campos->id_Fatura == 0) {
+                $con->imgFatura = $imageName;
+            } else {
+                $data['imgFatura'] = $imageName;
+            }
         }
 
         if($campos->hasFile('imgRecibo') && $campos->file('imgRecibo')->isValid()) {
@@ -67,12 +59,37 @@ class fatura_controller extends Controller
             $imageName = md5($requestImage->getClientOriginalName().strtotime("now") . "." . $extension);
 
             // mover o arquivo/imagem para o diretório
-            $campos->imgRecibo->move(public_path('img/atributos'), $imageName);
+            $campos->imgRecibo->move(public_path('img/recibos'), $imageName);
 
             // salvar a url do arquivo/imagem no banco
-            $con->imgRecibo = $imageName;
+            if($campos->id_Fatura == 0) {
+                $con->imgRecibo = $imageName;
+            } else {
+                $data['imgRecibo'] = $imageName;
+            }
         }
-        $con->save();
+
+        if($campos->id_Fatura == 0) {
+            $campos->validate([
+                'descricao' => 'required',
+                'valorFatura' => 'required',
+                'imgFatura' => 'required',
+                'vencimento' => 'required'
+            ]);
+          
+            $con->descricao = $campos->descricao;
+            $con->valorFatura = $campos->valorFatura;
+            $con->imgFatura = $campos->imgFatura;
+            $con->vencimento = $campos->vencimento;
+            $con->imgRecibo = $campos->imgRecibo;
+            $con->dataPagamento = $campos->dataPagamento;
+
+
+            $con->save();
+        } else {
+            
+            Fatura::findOrFail($campos ->id_Fatura)->update($data);
+        }
 
         return redirect("/fatura/index")->with('msg', 'Cadastro salvo com sucesso !!!');
 
@@ -80,7 +97,8 @@ class fatura_controller extends Controller
 
     public function mostrar($id){
         // findOrFail faz uma busca
-        
+        $fatura = Fatura::findOrFail($id);
+        return view('dashboard.new',['fatura'=>$fatura]);
 
     }
 

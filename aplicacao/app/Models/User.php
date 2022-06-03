@@ -58,6 +58,7 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    protected $guarded = [];
 
     public function faturas(){
         return $this->hasMany('App\Models\Fatura');

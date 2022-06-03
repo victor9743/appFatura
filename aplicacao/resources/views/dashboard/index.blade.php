@@ -94,7 +94,7 @@
           <tr>
             <td>{{$fatura->id}}</td>
             <td>{{$fatura->descricao}}</td>
-            <td><a href="/fatura/cadastrar/{{$fatura->id}}"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>
+            <td><a href="/fatura/detalhes/{{$fatura->id}}"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>
           </tr>
         @endforeach
        

@@ -53,8 +53,18 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::post('/fatura/index',  [fatura_controller::class, 'index']);
+    Route::get('/fatura/index',  [fatura_controller::class, 'index']);
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::put('/fatura/salvar/{id_Fatura}',  [fatura_controller::class, 'salvar']);
+});
+
+
 
 Route::middleware([
     'auth:sanctum',
