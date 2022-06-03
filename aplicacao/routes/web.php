@@ -90,3 +90,12 @@ Route::middleware([
     Route::get('/fatura/index', [fatura_controller::class, 'index']);
 
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::delete('/fatura/remover/{id}', [fatura_controller::class, 'remover']);
+
+});

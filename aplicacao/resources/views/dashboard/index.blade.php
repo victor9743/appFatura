@@ -95,6 +95,13 @@
             <td>{{$fatura->id}}</td>
             <td>{{$fatura->descricao}}</td>
             <td><a href="/fatura/detalhes/{{$fatura->id}}"><i class="fa fa-search text-light" aria-hidden="true"></i></a></td>
+            <td>
+              <form action="/fatura/remover/{{$fatura->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              </form>
+            </td>
           </tr>
         @endforeach
        

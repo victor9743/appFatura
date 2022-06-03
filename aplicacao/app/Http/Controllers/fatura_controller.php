@@ -102,7 +102,9 @@ class fatura_controller extends Controller
 
     }
 
-    public function remover(){
+    public function remover($id){
+        Fatura::findOrFail($id)->delete();
+        return redirect("/fatura/index");
 
     }
 }
