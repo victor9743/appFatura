@@ -55,7 +55,7 @@
               height="10"
               alt="perfil"
               loading="lazy"
-              style="height: 80px"
+              style="height: 50px"
             />
           </a>
           <ul
@@ -87,7 +87,7 @@
       <thead>
         <th>#</th>
         <th>Descrição</th>
-        <th>Detalhes</th>
+        <th colspan="2">Detalhes</th>
       </thead>
       <tbody>
         @foreach ($faturas as $fatura )
